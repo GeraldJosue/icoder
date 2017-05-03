@@ -1,0 +1,64 @@
+body{
+	margin:0;
+	padding:0;
+}
+
+#deporte{
+	background-color: rgb(13,71,161);
+	height: 60px;
+	color: white;
+	padding: 15px 10px;
+	font-weight: bold;
+	font-size: 1.7em;
+}
+
+#buscar{
+	margin-top: 20px;
+}
+
+#buscar input{
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	height: 35px;
+}
+
+#buscar button {
+	background-color: rgb(13,71,161);
+	color: white;
+	font-weight: bold;
+	height: 35px;
+}
+
+.formulario{
+	margin-top: 50px;
+}
+
+.formulario input {
+	margin-top: 50px;
+	border-style: none;
+	border-bottom: solid 0.1em rgb(176,190,197);
+}
+
+.formulario button {
+	margin-top: 50px;
+	width: 100%;
+}
+
+.atras{
+	background-color: rgb(13,71,161);
+	font-weight: bold;
+	color: white;
+	height: 35px;
+}
+
+
+.siguiente{
+	background-color: rgb(69,167,17);
+	font-weight: bold;
+	color: white;
+	height: 35px;
+}
+
+.progress{
+	margin-top: 50px;
+}
