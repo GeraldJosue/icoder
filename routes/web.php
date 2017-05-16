@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('registration');
+    return view('inicio');
 });
+
+Route::get('/registration', function () {
+    return view('registration');
+})->name('registration');
+
+Route::get('/sport', function () {
+    return view('sport');
+})->name('sport');

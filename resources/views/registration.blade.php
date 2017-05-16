@@ -82,7 +82,7 @@
 
         </div>
 
-        <div class="col-md-offset-2 col-md-8"">
+        <div class="col-md-offset-2 col-md-8">
             <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 33.3%;">1/3</div>
             </div>
