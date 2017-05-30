@@ -96,6 +96,50 @@
                             </div>
                         </div>
                     </form>
+
+                    <div class="row">
+
+                        <div class="col-md-10 col-md-offset-1">
+                            <table class="table" id="sports">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre de usuario</th>
+                                        <th>Correo</th>
+                                        <th>Canton</th>
+                                        <th>Permisos</th>
+                                        <th>A/E</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($users as $user)
+                                        <tr>
+                                            <td>{{$user->nickname}}</td>
+                                            <td>{{$user->email}}</td>
+                                            <td>{{$user->canton_id}}</td>
+                                            <td>{{$user->user_type}}</td>
+                                                                                    
+                                            <td>
+                                                <a data-toggle="modal" href="#" class="open-Modal" data-id="{{$users->id}}" data-target="#updateModal">
+                                                    
+                                                    <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
+
+                                                </a>
+                                                |
+                                                <a href="{{url('/user_rols/delete/'.$user->id)}}" 
+                                                    onclick="return confirm('¿Eliminar {{$user->nickname}} del sistema?');">
+                                                        
+                                                        <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span> 
+                                                </a>
+                                            
+                                                
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

@@ -72,6 +72,9 @@
                         <a href="{{ url('/home') }}">Home</a>
                         <a href="{{ url('/sports') }}">Deportes</a>
                         <a href="{{ url('/categories') }}">Categorías</a>
+                        <a href="{{ url('/try_outs') }}">Pruebas</a>
+                        <a href="{{ url('/user_rols') }}">Roles</a>
+                        <a href="{{ url('/users') }}">Usuarios</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>

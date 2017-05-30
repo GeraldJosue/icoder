@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">PRUEBAS</div>
+                <div class="panel-heading">ROLES</div>
 
                 <div class="panel-body">
                     <div id="idu" clas="row">
@@ -19,39 +19,23 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Agregar Prueba</h4>
+                                <h4 class="modal-title" id="myModalLabel">Agregar Rol</h4>
                               </div>
                               <div class="modal-body">
-                                <form class="form-horizontal" role="form" method="POST" action="{{route('try_out_create')}}">
+                                <form class="form-horizontal" role="form" method="POST" action="{{route('user_rol_create')}}">
                                     {{ csrf_field() }}
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <label for="name" class="col-md-4 control-label">Nombre de la prueba:</label>
+                                        <label for="name" class="col-md-4 control-label">Nombre del rol:</label>
 
                                         <div class="col-md-6">
-                                            <input id="try_out_name" type="text" class="form-control" name="try_out_name" value="{{ old('name') }}" required autofocus>
+                                            <input id="user_rol_name" type="text" class="form-control" name="user_rol_name" value="{{ old('name') }}" required autofocus>
 
                                             @if ($errors->has('name'))
                                             <span class="help-block">
                                             <strong>{{ $errors->first('name') }}</strong>
                                             </span>
                                             @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <label for="name" class="col-md-4 control-label">Categoría:</label>
-
-                                        <div class="col-md-6">
-                                         
-                                                 <select class="form-control" name="category_id" id="category_id">
-                                                        @foreach($categories as $category)
-                                                            <option value="{{$category->category_id}}">{{$category->category_name}}</option>
-                                                        @endforeach()
-                                                        
-                                                </select>
-
-                                            
                                         </div>
                                     </div>
 
@@ -81,10 +65,10 @@
                                         <input type="text" name="sport_id" hidden="true" readonly id="sport_id" value=""/>
 
                                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                            <label for="name" class="col-md-4 control-label">Nombre del deporte:</label>
+                                            <label for="name" class="col-md-4 control-label">Nombre del rol :</label>
 
                                             <div class="col-md-6">
-                                                <input id="new_try_out_name" type="text" class="form-control" name="new_try_out_name" value="" required>
+                                                <input id="new_user_rol_name" type="text" class="form-control" name="new_user_rol_name" value="" required>
 
                                                 @if ($errors->has('name'))
                                                 <span class="help-block">
@@ -92,21 +76,6 @@
                                                 </span>
                                                 @endif
                                             </div>
-                                        </div>
-
-                                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <label for="name" class="col-md-4 control-label">Categoría:</label>
-
-                                        <div class="col-md-6">
-                                         
-                                                 <select class="form-control" name="new_category_id" id="new_category_id">
-                                                        @foreach($categories as $category)
-                                                            <option value="{{$category->category_id}}">{{$category->category_name}}</option>
-                                                        @endforeach()
-                                                        
-                                                </select>
-
-                                            
                                         </div>
                                     </div>
 
@@ -130,35 +99,26 @@
                             <table class="table" id="sports">
                                 <thead>
                                     <tr>
-                                        <th>Prueba</th>
-                                        <th>Categoría</th>
+                                        <th>Rol</th>
                                         <th>A/E</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($try_outs as $try_out)
+                                    @foreach($user_rols as $user_rol)
                                         <tr>
-                                            <td>{{$try_out->try_out_name}}</td>
-                                            
-                                            @foreach($categories as $category)
-                                                @if($category->category_id == $try_out->category_id)
-                                                    <td>{{$category->category_name}}</td>
-                                                @endif
-
-                                            @endforeach()
+                                            <td>{{$user_rol->user_rol_name}}</td>
                                                                                     
                                             <td>
-                                                <a data-toggle="modal" href="#" class="open-Modal" data-id="{{$try_out->try_out_id}}" data-target="#updateModal">
+                                                <a data-toggle="modal" href="#" class="open-Modal" data-id="{{$user_rol->user_rol_id}}" data-target="#updateModal">
                                                     
                                                     <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
 
                                                 </a>
                                                 |
-                                                <a href="{{url('/try_outs/delete/'.$try_out->try_out_id)}}" 
-                                                    onclick="return confirm('¿Eliminar {{$try_out->try_out_name}} del sistema?');">
+                                                <a href="{{url('/user_rols/delete/'.$user_rol->user_rol_id)}}" 
+                                                    onclick="return confirm('¿Eliminar {{$user_rol->user_rol_name}} del sistema?');">
                                                         
-                                                        <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span>
-                                                    
+                                                        <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span> 
                                                 </a>
                                             
                                                 

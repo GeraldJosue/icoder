@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Try_Out;
+use App\Category;
 
 class Try_Out_Controller extends Controller
 {
     //
     
     public function show(){
-		$sports = Sport::all();
+		$try_outs = Try_Out::all();
+        $categories = Category::all();
 
-    	return view('sports', compact('sports'));
+    	return view('try_out', compact('try_outs', 'categories'));
 
 	}
 
@@ -24,31 +26,30 @@ class Try_Out_Controller extends Controller
 
     	//$sport->save();
 
-    	$sport = Sport::create([
-    		'sport_name' => $request->sport_name,
-    		'sport_type' => $request->sport_type,
-    		'max_num' => 1
+    	$try_out = Try_Out::create([
+    		'try_out_name' => $request->try_out_name,
+    		'category_id' => $request->category_id
     		]);
-        return redirect()->route('sports');
+        return redirect()->route('try_outs');
     }
 
     public function delete($id)
     {
-        $sport = Sport::where('sport_id', $id);
-        $sport->delete();
+        $try_out = Try_Out::where('try_out_id', $id);
+        $try_out->delete();
 
-        return redirect()->route('sports');
+        return redirect()->route('try_outs');
     }
 
     public function update(Request $request)
     {
 
-        $sport = Sport::find($request->sport_id);
-        $sport->sport_name = $request->new_sport_name;
-        $sport->sport_type = $request->new_sport_type;
+        $try_out = Try_Out::find($request->try_out_id);
+        $try_out->try_out_name = $request->new_try_out_name;
+        $try_out->category_id = $request->new_category_id;
 
-        $sport->save();
+        $try_out->save();
 
-        return redirect()->route('sports');
+        return redirect()->route('try_outs');
     }
 }

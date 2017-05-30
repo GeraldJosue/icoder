@@ -14,6 +14,7 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Agregar</button>
                         </div>
 
+
                         <!-- Modal -->
                         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                           <div class="modal-dialog" role="document">
@@ -203,7 +204,7 @@
                     <div class="row">
 
                         <div class="col-md-10 col-md-offset-1">
-                            <table class="table" id="categories">
+                            <table class="table" id="sports">
                                 <thead>
                                     <tr>
                                         <th>Categoría</th>
@@ -226,12 +227,14 @@
 
                                                 @if($sport->sport_id == $category->sport_id)
                                                     <td>{{$sport->sport_name}}</td>
-                                               @endif
+                                                @endif
 
                                             @endforeach   
 
+
                                             <td>
-                                                <a data-toggle="modal" href="#" class="open-Category" data-id="{{$category->category_id}}" data-target="#updateModal">
+
+                                                <a data-toggle="modal" href="#" class="open_Category" data-id="{{$category->category_id}}" data-target="#updateModal">
                                                     
                                                     <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
 
@@ -241,7 +244,6 @@
                                                     onclick="return confirm('¿Eliminar {{$category->category_name}} del sistema?');">
                                                         
                                                         <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span>
-                                                    
                                                 </a>
                                             
                                                 
@@ -258,4 +260,5 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="js/category.js"></script>
 @endsection
