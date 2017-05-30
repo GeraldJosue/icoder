@@ -1,0 +1,33 @@
+#idu{
+	text-align: center;
+}
+
+#idu button{
+	width: 100%;
+	margin-bottom: 25px;
+}
+
+table {
+	width: 100%;
+}
+
+table th{
+	text-align: center;
+	border: 1px solid;
+	padding: 10px;
+}
+
+table tr{
+	text-align: center;
+	border: 1px solid;
+}
+
+table td{
+	text-align: :center;
+	border: 1px solid;
+}
+
+span.eliminar{
+	color: green;
+}
+
