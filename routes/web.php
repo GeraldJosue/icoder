@@ -18,7 +18,9 @@ Route::get('/', function () {
 //Auth routes
 Auth::routes();
 Route::get('/users', 'UserController@show')->name('users');
+Route::post('/users/create', 'UserController@create')->name('register_create');
 Route::get('/users/delete/{id}', 'UserController@delete');
+Route::post('/users/update/', 'UserController@update')->name('user_update');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

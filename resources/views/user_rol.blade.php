@@ -62,7 +62,7 @@
                                     {{ csrf_field() }}
 
                                     
-                                        <input type="text" name="sport_id" hidden="true" readonly id="sport_id" value=""/>
+                                        <input type="text" name="user_rol_id" hidden="true" readonly id="user_rol_id" value=""/>
 
                                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                             <label for="name" class="col-md-4 control-label">Nombre del rol :</label>
@@ -96,11 +96,12 @@
                     <div class="row">
 
                         <div class="col-md-10 col-md-offset-1">
-                            <table class="table" id="sports">
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th>Rol</th>
-                                        <th>A/E</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -109,12 +110,13 @@
                                             <td>{{$user_rol->user_rol_name}}</td>
                                                                                     
                                             <td>
-                                                <a data-toggle="modal" href="#" class="open-Modal" data-id="{{$user_rol->user_rol_id}}" data-target="#updateModal">
+                                                <a data-toggle="modal" href="#" class="edit-Rol" data-id="{{$user_rol->user_rol_id}}" data-target="#updateModal">
                                                     
                                                     <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
 
                                                 </a>
-                                                |
+                                                </td>
+                                                <td>
                                                 <a href="{{url('/user_rols/delete/'.$user_rol->user_rol_id)}}" 
                                                     onclick="return confirm('¿Eliminar {{$user_rol->user_rol_name}} del sistema?');">
                                                         

@@ -127,12 +127,13 @@
                     <div class="row">
 
                         <div class="col-md-10 col-md-offset-1">
-                            <table class="table" id="sports">
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th>Deporte</th>
                                         <th>Tipo</th>
-                                        <th>A/E</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -149,12 +150,13 @@
                                             @endif
                                                                                     
                                             <td>
-                                                <a data-toggle="modal" href="#" class="open-Modal" data-id="{{$sport->sport_id}}" data-target="#updateModal">
+                                                <a data-toggle="modal" href="#" class="edit-Sport" data-id="{{$sport->sport_id}}" data-target="#updateModal">
                                                     
                                                     <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
 
                                                 </a>
-                                                |
+                                                </td>
+                                                <td>
                                                 <a href="{{url('/sports/delete/'.$sport->sport_id)}}" 
                                                     onclick="return confirm('¿Eliminar {{$sport->sport_name}} del sistema?');">
                                                         

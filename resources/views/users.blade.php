@@ -23,24 +23,25 @@
                                 <h4 class="modal-title" id="myModalLabel">Agregar Usuario</h4>
                               </div>
                               <div class="modal-body">
-                                <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+                                <form class="form-horizontal" role="form" method="POST" action="{{ route('register_create') }}">
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Nombre de usuario:</label>
+                                    {{ csrf_field() }}
 
-                            <div class="col-md-6">
-                                <input id="nickname" type="text" class="form-control" name="nickname" value="{{ old('name') }}" required autofocus>
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                        <label for="name" class="col-md-4 control-label">Nombre de usuario:</label>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                                        <div class="col-md-6">
+                                            <input id="nickname" type="text" class="form-control" name="nickname" value="{{ old('name') }}" required autofocus>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                            @if ($errors->has('name'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('name') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                         <label for="name" class="col-md-4 control-label">Cantón:</label>
 
                                         <div class="col-md-6">
@@ -52,55 +53,55 @@
                                             </select> --}}
                                         </div>
                                     </div>
-:
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Tipo:</label>
 
-                            <div class="col-md-6">
-                                    <select class="form-control" name="user_type" id="user_type">
-                                            <option value="1">Administrador</option>
-                                            <option value="2">Representante</option>
-                                            <option value="3">Super Admin</option>
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                        <label for="name" class="col-md-4 control-label">Tipo:</label>
 
-                                    </select>
-                            </div>
-                        </div>
+                                        <div class="col-md-6">
+                                            <select class="form-control" name="user_type" id="user_type">
+                                                <option value="1">Administrador</option>
+                                                <option value="2">Representante</option>
+                                                <option value="3">Super Admin</option>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Correo:</label>
+                                            </select>
+                                        </div>
+                                    </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                        <label for="email" class="col-md-4 control-label">Correo:</label>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                                        <div class="col-md-6">
+                                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Contraseña</label>
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
 
-                            <div class="col-md-6">
-                                <input id="password" class="form-control" name="password" required>
+                                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                        <label for="password" class="col-md-4 control-label">Contraseña</label>
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                                        <div class="col-md-6">
+                                            <input id="password" class="form-control" name="password" required>
 
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
+                                    <div class="form-group">
+                                        <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                                        <div class="col-md-6">
+                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                        </div>
+                                    </div>
 
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                     <button type="submit" class="btn btn-primary">Guardar</button>
@@ -123,7 +124,92 @@
                                 <h4 class="modal-title" id="myModalLabel">Editar Categoría</h4>
                               </div>
                               <div class="modal-body">
-                                
+                                <form class="form-horizontal" role="form" method="POST" action="{{route('user_update')}}">
+
+                                    {{ csrf_field() }}
+
+                                    <input type="text" name="id" hidden="true" readonly id="id" value=""/>
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                        <label for="name" class="col-md-4 control-label">Nombre de usuario:</label>
+
+                                        <div class="col-md-6">
+                                            <input id="new_nickname" type="text" class="form-control" name="new_nickname" value="{{ old('name') }}" required autofocus>
+
+                                            @if ($errors->has('name'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('name') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                        <label for="name" class="col-md-4 control-label">Cantón:</label>
+
+                                        <div class="col-md-6">
+                                            {{-- <select class="form-control" name="new_canton_id" id="new_canton_id">
+                                                @foreach($cantons as $canton)
+                                                    <option value="{{$canton->canton_id}}">{{$canton->canton_name}}</option>
+                                                @endforeach
+
+                                            </select> --}}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                        <label for="name" class="col-md-4 control-label">Tipo:</label>
+
+                                        <div class="col-md-6">
+                                            <select class="form-control" name="new_user_type" id="new_user_type">
+                                                <option value="1">Administrador</option>
+                                                <option value="2">Representante</option>
+                                                <option value="3">Super Admin</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                        <label for="email" class="col-md-4 control-label">Correo:</label>
+
+                                        <div class="col-md-6">
+                                            <input id="new_email" type="new_email" class="form-control" name="new_email" value="{{ old('email') }}" required>
+
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+{{-- 
+                                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                        <label for="password" class="col-md-4 control-label">Contraseña</label>
+
+                                        <div class="col-md-6">
+                                            <input id="password" class="form-control" name="password" required>
+
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                                        <div class="col-md-6">
+                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                        </div>
+                                    </div> --}}
+
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+
+                                </form>                                
 
                               </div>
                               <div class="modal-footer">
@@ -132,18 +218,20 @@
                             </div>
                           </div>
                         </div>
+                        </div>
 
                     <div class="row">
 
                         <div class="col-md-10 col-md-offset-1">
-                            <table class="table" id="sports">
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Nombre de usuario</th>
+                                        <th>Nombrre de usuario</th>
                                         <th>Correo</th>
                                         <th>Canton</th>
                                         <th>Permisos</th>
-                                        <th>A/E</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -162,12 +250,13 @@
                                             @endif()
                                                                                     
                                             <td>
-                                                <a data-toggle="modal" href="#" class="open-Modal" data-id="{{$user->id}}" data-target="#updateModal">
+                                                <a data-toggle="modal" href="#" class="edit-User" data-id="{{$user->id}}" data-target="#updateModal">
                                                     
                                                     <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
 
                                                 </a>
-                                                |
+                                                </td>
+                                                <td>
                                                 <a href="{{url('/users/delete/'.$user->id)}}" 
                                                     onclick="return confirm('¿Eliminar {{$user->nickname}} del sistema?');">
                                                         
@@ -187,5 +276,4 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="js/category.js"></script>
 @endsection

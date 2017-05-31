@@ -98,7 +98,6 @@
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                     <button type="submit" class="btn btn-primary">Guardar</button>
                                 </form>
-
                               </div>
                               <div class="modal-footer">
 
@@ -200,11 +199,12 @@
                             </div>
                           </div>
                         </div>
+                    </div>
 
                     <div class="row">
 
                         <div class="col-md-10 col-md-offset-1">
-                            <table class="table" id="sports">
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th>Categoría</th>
@@ -212,14 +212,21 @@
                                         <th>Año Min</th>
                                         <th>Año Max</th>
                                         <th>Deporte</th>
-                                        <th>A/E</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($categories as $category)
                                         <tr>
                                             <td>{{$category->category_name}}</td>
-                                            <td>{{$category->gender}}</td>
+                                            
+                                            @if($category->gender == 'F')
+                                                <td>Femenino</td>
+                                            @else
+                                                <td>Masculino</td>
+                                            @endif
+
                                             <td>{{$category->initial_year}}</td>
                                             <td>{{$category->final_year}}</td>
 
@@ -227,6 +234,7 @@
 
                                                 @if($sport->sport_id == $category->sport_id)
                                                     <td>{{$sport->sport_name}}</td>
+                                                @else
                                                 @endif
 
                                             @endforeach   
@@ -234,12 +242,13 @@
 
                                             <td>
 
-                                                <a data-toggle="modal" href="#" class="open_Category" data-id="{{$category->category_id}}" data-target="#updateModal">
+                                                <a data-toggle="modal" href="#" class="edit-Category" data-id="{{$category->category_id}}" data-target="#updateModal">
                                                     
                                                     <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
 
                                                 </a>
-                                                |
+                                                </td>
+                                                <td>
                                                 <a href="{{url('/categories/delete/'.$category->category_id)}}" 
                                                     onclick="return confirm('¿Eliminar {{$category->category_name}} del sistema?');">
                                                         
@@ -253,7 +262,6 @@
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>

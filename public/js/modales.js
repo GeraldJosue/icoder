@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     $(".open-Modal").on("click", function(){
-
+    	alert('HO');
     	var myDNI = $(this).data('id');
     	$("#sport_id").val( myDNI );
 
@@ -13,7 +13,6 @@ $(document).ready(function(){
 		
 	});
 
-	
 });
 
 
