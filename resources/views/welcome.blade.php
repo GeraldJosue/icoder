@@ -70,6 +70,10 @@
                 <div class="top-right links">
                     @if (Auth::check())
                         <a href="{{ url('/home') }}">Home</a>
+                        
+                        <a href="{{ url('/provinces') }}">Provincias</a>
+                        <a href="{{ url('/cantons') }}">Cantones</a>
+                        <a href="{{ url('/editions') }}">Ediciones</a>
                         <a href="{{ url('/sports') }}">Deportes</a>
                         <a href="{{ url('/categories') }}">Categorías</a>
                         <a href="{{ url('/try_outs') }}">Pruebas</a>

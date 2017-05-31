@@ -111,13 +111,13 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Efitar Categoría</h4>
+                                <h4 class="modal-title" id="myModalLabel">Editar Categoría</h4>
                               </div>
                               <div class="modal-body">
                                 <form class="form-horizontal" role="form" method="POST" action="{{route('category_update')}}">
                                     {{ csrf_field() }}
 
-                                    <input type="text" name="category_id" hidden="true" readonly id="category_id" value="2"/>
+                                    <input type="text" name="category_id" hidden="true" readonly id="category_id" value=""/>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                         <label for="name" class="col-md-4 control-label">Nombre de la categoría:</label>

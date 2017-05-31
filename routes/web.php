@@ -49,4 +49,23 @@ Route::post('/try_outs/update/', 'Try_Out_Controller@update')->name('try_out_upd
 Route::get('/user_rols', 'User_RolController@show')->name('user_rols');
 Route::post('/user_rols/create', 'User_RolController@create')->name('user_rol_create');
 Route::get('/user_rols/delete/{id}', 'User_RolController@delete');
-//Route::post('/try_outs/update/', 'Try_Out_Controller@update')->name('try_out_update');
+Route::post('/user_rols/update/', 'User_RolController@update')->name('user_rol_update');
+
+
+//Province routes 
+Route::get('/provinces', 'ProvinceController@show')->name('provinces');
+Route::post('/provinces', 'ProvinceController@create');
+Route::get('/provinces/delete/{id}', 'ProvinceController@delete');
+Route::post('/provinces/update/', 'ProvinceController@update');
+
+//Canton routes 
+Route::get('/cantons', 'CantonController@show')->name('cantons');
+Route::post('/cantons', 'CantonController@create');
+Route::get('/cantons/delete/{id}', 'CantonController@delete');
+Route::post('/cantons/update/', 'CantonController@update')->name('canton_update');
+
+//Edition routes 
+Route::get('/editions', 'EditionsController@show')->name('editions');
+Route::post('/editions', 'EditionsController@create');
+Route::get('/editions/delete/{id}', 'EditionsController@delete');
+Route::post('/editions/update/', 'EditionsController@update');

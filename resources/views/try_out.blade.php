@@ -71,7 +71,7 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Editar Deporte</h4>
+                                <h4 class="modal-title" id="myModalLabel">Editar Prueba</h4>
                               </div>
                               <div class="modal-body">
                                 <form class="form-horizontal" role="form" method="POST" action="{{url('/try_outs/update/')}}">
@@ -81,7 +81,7 @@
                                         <input type="text" name="try_out_id" hidden="true" readonly id="try_out_id" value=""/>
 
                                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                            <label for="name" class="col-md-4 control-label">Nombre del deporte:</label>
+                                            <label for="name" class="col-md-4 control-label">Nombre de la prueba:</label>
 
                                             <div class="col-md-6">
                                                 <input id="new_try_out_name" type="text" class="form-control" name="new_try_out_name" value="" required>
@@ -95,19 +95,19 @@
                                         </div>
 
                                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <label for="name" class="col-md-4 control-label">Categoría:</label>
+                                            <label for="name" class="col-md-4 control-label">Categoría:</label>
 
-                                        <div class="col-md-6">
-                                         
-                                                 <select class="form-control" name="new_category_id" id="new_category_id">
-                                                        @foreach($categories as $category)
-                                                            <option value="{{$category->category_id}}">{{$category->category_name}}</option>
-                                                        @endforeach()
-                                                        
-                                                </select>
-                                            
+                                            <div class="col-md-6">
+                                             
+                                                     <select class="form-control" name="new_category_id" id="new_category_id">
+                                                            @foreach($categories as $category)
+                                                                <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                                                            @endforeach()
+                                                            
+                                                    </select>
+                                                
+                                            </div>
                                         </div>
-                                    </div>
 
                                     <button type="submit" class="btn btn-primary">Actualizar</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

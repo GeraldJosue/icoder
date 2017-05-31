@@ -38,7 +38,7 @@ class User_RolController extends Controller
     public function update(Request $request)
     {
 
-        $user_rol = User::find($request->user_rol_id);
+        $user_rol = User_Rol::find($request->user_rol_id);
         $user_rol->user_rol_name = $request->new_user_rol_name;
         $user_rol->save();
 

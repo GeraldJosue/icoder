@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">ROLES</div>
+                <div class="panel-heading">PROVINCIAS</div>
 
                 <div class="panel-body">
                     <div id="idu" clas="row">
@@ -19,17 +19,17 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Agregar Rol</h4>
+                                <h4 class="modal-title" id="myModalLabel">Agregar Provincia</h4>
                               </div>
                               <div class="modal-body">
-                                <form class="form-horizontal" role="form" method="POST" action="{{route('user_rol_create')}}">
+                                <form class="form-horizontal" role="form" method="POST">
                                     {{ csrf_field() }}
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <label for="name" class="col-md-4 control-label">Nombre del rol:</label>
+                                        <label for="name" class="col-md-4 control-label">Nombre de la provincia:</label>
 
                                         <div class="col-md-6">
-                                            <input id="user_rol_name" type="text" class="form-control" name="user_rol_name" value="{{ old('name') }}" required autofocus>
+                                            <input id="province_name" type="text" class="form-control" name="province_name" value="{{ old('name') }}" required autofocus>
 
                                             @if ($errors->has('name'))
                                             <span class="help-block">
@@ -37,7 +37,7 @@
                                             </span>
                                             @endif
                                         </div>
-                                    </div>
+                                    </div>                                    
 
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                     <button type="submit" class="btn btn-primary">Guardar</button>
@@ -55,29 +55,28 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Editar Deporte</h4>
+                                <h4 class="modal-title" id="myModalLabel">Editar Provincia</h4>
                               </div>
                               <div class="modal-body">
-                                <form class="form-horizontal" role="form" method="POST" action="{{route('user_rol_update')}}">
-                                    {{ csrf_field() }}
+                                <form class="form-horizontal" role="form" method="POST" action="{{url('/provinces/update/')}}">
 
-                                    
-                                        <input type="text" name="user_rol_id" hidden="true" readonly id="user_rol_id" value=""/>
+                                {{ csrf_field() }}
+    
+                                        <input type="text" name="province_id" hidden="true" readonly id="province_id" value=""/>
 
                                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                            <label for="name" class="col-md-4 control-label">Nombre del rol :</label>
+                                            <label for="name" class="col-md-4 control-label">Nombre de la provincia:</label>
 
                                             <div class="col-md-6">
-                                                <input id="new_user_rol_name" type="text" class="form-control" name="new_user_rol_name" value="" required>
+                                                <input id="new_province_name" type="text" class="form-control" name="new_province_name" value="" required>
 
                                                 @if ($errors->has('name'))
-                                                <span class="help-block">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                                </span>
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('name') }}</strong>
+                                                    </span>
                                                 @endif
                                             </div>
-                                        </div>
-                                    
+                                        </div>                                        
 
                                     <button type="submit" class="btn btn-primary">Actualizar</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -96,31 +95,30 @@
                     <div class="row">
 
                         <div class="col-md-10 col-md-offset-1">
-                            <table class="table">
+                            <table class="table" id="provinces">
                                 <thead>
                                     <tr>
-                                        <th>Rol</th>
-                                        <th>Editar</th>
-                                        <th>Eliminar</th>
+                                        <th>Provincia</th>
+                                        <th>A/E</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($user_rols as $user_rol)
-                                        <tr>
-                                            <td>{{$user_rol->user_rol_name}}</td>
-                                                                                    
+                                    @foreach($provinces as $province)
+                                        <tr>  
+
+                                            <td>{{$province->province_name}}</td>                                     
                                             <td>
-                                                <a data-toggle="modal" href="#" class="edit-Rol" data-id="{{$user_rol->user_rol_id}}" data-target="#updateModal">
+                                                <a data-toggle="modal" href="#" class="edit-Province" data-id="{{$province->province_id}}" data-target="#updateModal">
                                                     
                                                     <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
 
                                                 </a>
-                                                </td>
-                                                <td>
-                                                <a href="{{url('/user_rols/delete/'.$user_rol->user_rol_id)}}" 
-                                                    onclick="return confirm('¿Eliminar {{$user_rol->user_rol_name}} del sistema?');">
+                                                |
+                                                <a href="{{url('/provinces/delete/'.$province->province_id)}}" 
+                                                    onclick="return confirm('¿Eliminar {{$province->province_name}} del sistema?');">
                                                         
-                                                        <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span> 
+                                                        <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span>
+                                                    
                                                 </a>
                                             
                                                 

@@ -11,7 +11,6 @@ $(document).ready(function(){
 
     	var id = $(this).data('id');
     	$("#sport_id").val( id );
-
     	var tr = $(this).parents('tr');
     	
 		var name = tr.find('td')[0].innerHTML;
@@ -88,6 +87,29 @@ $(document).ready(function(){
 		//configselect("new_canton_id", canton);
 		configselect("new_user_type", type);
 		
+	});
+
+	$(".edit-Canton").on("click", function(){
+    	var id = $(this).data('id');
+    	$("#canton_id").val( id );
+
+    	var tr = $(this).parents('tr');
+		var name = tr.find('td')[0].innerHTML;
+		var province = tr.find('td')[1].innerHTML;
+
+		$("#new_canton_name").val( name );
+		configselect("new_province_id", province);
+
+	});
+
+	$(".edit-Province").on("click", function(){
+    	var id = $(this).data('id');
+    	$("#province_id").val( id );
+    	var tr = $(this).parents('tr');
+		var name = tr.find('td')[0].innerHTML;
+
+		$("#new_province_name").val( name );
+
 	});
 
 });
