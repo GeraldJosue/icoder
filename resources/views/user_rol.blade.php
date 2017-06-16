@@ -7,132 +7,55 @@
             <div class="panel panel-default">
                 <div class="panel-heading">ROLES</div>
 
-                <div class="panel-body">
-                    <div id="idu" clas="row">
+                    <div class="panel-body">
+                    <div id="buscar" class="col-md-12">
+                        <div class="input-group col-md-5">
+                             <input type="text" class="form-control" placeholder="Search for...">
+                             <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Buscar</button>
+                             </span>
+                        </div>
+                    </div>
+
+                    <div class="formulario" class="col-md-12">
+                        
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Cédula" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" placeholder="Nacionalidad" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" placeholder="Telefono" aria-describedby="basic-addon1">
+                            </div>
+                        </div>            
 
                         <div class="col-md-4">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Agregar</button>
-                        </div>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Agregar Rol</h4>
-                              </div>
-                              <div class="modal-body">
-                                <form class="form-horizontal" role="form" method="POST" action="{{route('user_rol_create')}}">
-                                    {{ csrf_field() }}
-
-                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <label for="name" class="col-md-4 control-label">Nombre del rol:</label>
-
-                                        <div class="col-md-6">
-                                            <input id="user_rol_name" type="text" class="form-control" name="user_rol_name" value="{{ old('name') }}" required autofocus>
-
-                                            @if ($errors->has('name'))
-                                            <span class="help-block">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                            </span>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </form>
-
-                              </div>
-                              <div class="modal-footer">
-
-                              </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" placeholder="Fecha de Nacimiento" aria-describedby="basic-addon1">
+                                <div class="col-md-12">
+                                    <button class="atras" class="btn btn-default" type="button">Atrás</button>
+                                </div>
                             </div>
-                          </div>
-                        </div>
+                        </div> 
 
-                        <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Editar Deporte</h4>
-                              </div>
-                              <div class="modal-body">
-                                <form class="form-horizontal" role="form" method="POST" action="{{route('user_rol_update')}}">
-                                    {{ csrf_field() }}
-
-                                    
-                                        <input type="text" name="user_rol_id" hidden="true" readonly id="user_rol_id" value=""/>
-
-                                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                            <label for="name" class="col-md-4 control-label">Nombre del rol :</label>
-
-                                            <div class="col-md-6">
-                                                <input id="new_user_rol_name" type="text" class="form-control" name="new_user_rol_name" value="" required>
-
-                                                @if ($errors->has('name'))
-                                                <span class="help-block">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    
-
-                                    <button type="submit" class="btn btn-primary">Actualizar</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                    
-                                </form>
-
-                              </div>
-                              <div class="modal-footer">
-
-                              </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Apellidos" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" placeholder="Correo" aria-describedby="basic-addon1">
+                                <div class="col-md-12">
+                                    <button class="siguiente" class="btn btn-default" type="button">Siguiente</button>
+                                </div>
                             </div>
-                          </div>
-                        </div>
+                        </div> 
+
+
                     </div>
 
-                    <div class="row">
-
-                        <div class="col-md-10 col-md-offset-1">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Rol</th>
-                                        <th>Editar</th>
-                                        <th>Eliminar</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($user_rols as $user_rol)
-                                        <tr>
-                                            <td>{{$user_rol->user_rol_name}}</td>
-                                                                                    
-                                            <td>
-                                                <a data-toggle="modal" href="#" class="edit-Rol" data-id="{{$user_rol->user_rol_id}}" data-target="#updateModal">
-                                                    
-                                                    <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
-
-                                                </a>
-                                                </td>
-                                                <td>
-                                                <a href="{{url('/user_rols/delete/'.$user_rol->user_rol_id)}}" 
-                                                    onclick="return confirm('¿Eliminar {{$user_rol->user_rol_name}} del sistema?');">
-                                                        
-                                                        <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span> 
-                                                </a>
-                                            
-                                                
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 33.3%;">1/3</div>
                         </div>
-
                     </div>
-                </div>
+                    </div>
             </div>
         </div>
     </div>

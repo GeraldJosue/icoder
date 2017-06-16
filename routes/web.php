@@ -22,7 +22,6 @@ Route::post('/users/create', 'UserController@create')->name('register_create');
 Route::get('/users/delete/{id}', 'UserController@delete');
 Route::post('/users/update/', 'UserController@update')->name('user_update');
 
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Sport routes
@@ -69,3 +68,6 @@ Route::get('/editions', 'EditionsController@show')->name('editions');
 Route::post('/editions', 'EditionsController@create');
 Route::get('/editions/delete/{id}', 'EditionsController@delete');
 Route::post('/editions/update/', 'EditionsController@update');
+
+//Register routes
+Route::get('/registration', 'EnrolleController@show')->name('registration');

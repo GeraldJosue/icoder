@@ -112,4 +112,23 @@ $(document).ready(function(){
 
 	});
 
+	$(".edit-Edition").on("click", function(){
+    	var id = $(this).data('id');
+    	$("#edition_id").val( id );
+
+    	var tr = $(this).parents('tr');
+		var name = tr.find('td')[0].innerHTML;
+		var year = tr.find('td')[1].innerHTML;
+		var place = tr.find('td')[2].innerHTML;
+		var initial = tr.find('td')[3].innerHTML;
+		var final = tr.find('td')[4].innerHTML;
+
+		$("#new_edition_name").val( name );
+		$("#new_edition_place").val( place );
+		$("#new_initial_date").val( initial );
+		$("#new_final_date").val( final );
+		configselect("new_edition_year", year);
+
+	});
+
 });

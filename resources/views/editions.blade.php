@@ -40,20 +40,6 @@
                                     </div>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <label for="name" class="col-md-4 control-label">Año de la edicion:</label>
-
-                                        <div class="col-md-6">
-                                            <input id="edition_year" type="text" class="form-control" name="edition_year" value="{{ old('name') }}" required autofocus>
-
-                                            @if ($errors->has('name'))
-                                            <span class="help-block">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                            </span>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                         <label for="name" class="col-md-4 control-label">Lugar de la edicion:</label>
 
                                         <div class="col-md-6">
@@ -68,10 +54,22 @@
                                     </div>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                        <label for="name" class="col-md-4 control-label">Año de la edicion:</label>
+
+                                        <div class="col-md-6">
+                                            <select class="form-control" name="edition_year" id="edition_year">
+                                                    <option value="2017">2017</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                         <label for="name" class="col-md-4 control-label">Fecha de inicio:</label>
 
                                         <div class="col-md-6">
-                                            <input id="initial_date" type="text" class="form-control" name="initial_date" value="{{ old('name') }}" required autofocus>
+                                            <input id="initial_date" type="date" class="form-control" name="initial_date" value="{{ old('name') }}" required>
 
                                             @if ($errors->has('name'))
                                             <span class="help-block">
@@ -85,7 +83,7 @@
                                         <label for="name" class="col-md-4 control-label">Fecha final:</label>
 
                                         <div class="col-md-6">
-                                            <input id="final_date" type="text" class="form-control" name="final_date" value="{{ old('name') }}" required autofocus>
+                                            <input id="final_date" type="date" class="form-control" name="final_date" value="{{ old('name') }}" required autofocus>
 
                                             @if ($errors->has('name'))
                                             <span class="help-block">
@@ -133,20 +131,6 @@
                                                 @endif
                                             </div>
                                         </div>
-    
-                                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                            <label for="name" class="col-md-4 control-label">Año de la Edicion:</label>
-
-                                            <div class="col-md-6">
-                                                <input id="new_edition_year" type="text" class="form-control" name="new_edition_year" value="" required>
-
-                                                @if ($errors->has('name'))
-                                                <span class="help-block">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-                                        </div>
 
                                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                             <label for="name" class="col-md-4 control-label">Lugar de la Edicion:</label>
@@ -162,11 +146,22 @@
                                             </div>
                                         </div>
 
+                                        
+                                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                            <label for="name" class="col-md-4 control-label">Año de la Edicion:</label>
+
+                                            <div class="col-md-6">
+                                                <select class="form-control" name="new_edition_year" id="new_edition_year">
+                                                    <option value="2017">2017</option>
+                                            	</select>
+                                            </div>
+                                        </div>
+
                                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                             <label for="name" class="col-md-4 control-label">Fecha de inicio:</label>
 
                                             <div class="col-md-6">
-                                                <input id="new_initial_date" type="text" class="form-control" name="new_initial_date" value="" required>
+                                                <input id="new_initial_date" type="date" class="form-control" name="new_initial_date" value="" required>
 
                                                 @if ($errors->has('name'))
                                                 <span class="help-block">
@@ -180,7 +175,7 @@
                                             <label for="name" class="col-md-4 control-label">Fecha final:</label>
 
                                             <div class="col-md-6">
-                                                <input id="new_final_date" type="text" class="form-control" name="new_final_date" value="" required>
+                                                <input id="new_final_date" type="date" class="form-control" name="new_final_date" value="" required>
 
                                                 @if ($errors->has('name'))
                                                 <span class="help-block">
@@ -222,14 +217,14 @@
                                     @foreach($editions as $edition)
                                         <tr>
                                             <td>{{$edition->edition_name}}</td>
-                                            <td>{{$edition->edition_year}}</td>
-                                            <td>{{$edition->edition_place}}</td>
+                                            <td>{{$edition->year}}</td>
+                                            <td>{{$edition->place}}</td>
                                             <td>{{$edition->initial_date}}</td>
                                             <td>{{$edition->final_date}}</td>
                                             
                                                                                     
                                             <td>
-                                                <a data-toggle="modal" href="#" class="open-Modal" data-id="{{$edition->edition_id}}" data-target="#updateModal">
+                                                <a data-toggle="modal" href="#" class="edit-Edition" data-id="{{$edition->edition_id}}" data-target="#updateModal">
                                                     
                                                     <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
 

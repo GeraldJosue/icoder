@@ -19,8 +19,8 @@ public function show(){
     {
     	$edition = Edition::create([
     		'edition_name' => $request->edition_name,
-    		'year' => $request->year,
-    		'place' => $request->place,
+    		'year' => $request->edition_year,
+    		'place' => $request->edition_place,
     		'initial_date' => $request->initial_date,
     		'final_date' => $request->final_date
     		]);
@@ -40,8 +40,8 @@ public function show(){
 
         $edition = Edition::find($request->edition_id);
         $edition->edition_name = $request->new_edition_name;
-        $edition->year = $request->new_year;
-        $edition->place = $request->new_place;
+        $edition->year = $request->new_edition_year;
+        $edition->place = $request->new_edition_place;
         $edition->initial_date = $request->new_initial_date;
         $edition->final_date = $request->new_final_date;
 

@@ -79,6 +79,7 @@
                         <a href="{{ url('/try_outs') }}">Pruebas</a>
                         <a href="{{ url('/user_rols') }}">Roles</a>
                         <a href="{{ url('/users') }}">Usuarios</a>
+                        <a href="{{ url('/registration') }}">Inscripción</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
