@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         //$this->call(ProvincesSedeer::class);
         //$this->call(SportsSeeder::class);
         //$this->call(CantonsSeeder::class);
+        $this->call(RegistroCivilSeeder::class);
 
     }
 }

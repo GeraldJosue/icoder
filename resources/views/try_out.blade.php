@@ -22,6 +22,7 @@
                                 <h4 class="modal-title" id="myModalLabel">Agregar Prueba</h4>
                               </div>
                               <div class="modal-body">
+                              
                                 <form class="form-horizontal" role="form" method="POST" action="{{route('try_out_create')}}">
                                     {{ csrf_field() }}
 
@@ -150,7 +151,7 @@
                                             <td>
                                                 <a data-toggle="modal" href="#" class="edit-Try_out" data-id="{{$try_out->try_out_id}}" data-target="#updateModal">
                                                     
-                                                    <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
+                                                    <span class="glyphicon glyphicon-pencil" style="color:blue" aria-hidden="true"></span>
 
                                                 </a>
                                                 </td>
@@ -158,7 +159,7 @@
                                                 <a href="{{url('/try_outs/delete/'.$try_out->try_out_id)}}" 
                                                     onclick="return confirm('¿Eliminar {{$try_out->try_out_name}} del sistema?');">
                                                         
-                                                        <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span>
+                                                        <span class="glyphicon glyphicon-trash" style="color:red" aria-hidden="true"></span>
                                                     
                                                 </a>
                                             

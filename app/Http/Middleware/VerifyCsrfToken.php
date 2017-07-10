@@ -14,4 +14,14 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
     ];
+
+    public function handle($request, Closure $next)
+	{
+        if($request->method() == 'POST')
+        {
+        	return $next($request);
+        }
+ 
+	    throw new TokenMismatchException;
+	}
 }

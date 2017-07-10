@@ -3,22 +3,25 @@
 
 @section('content')
 <div class="container">
-<header>
-    <img src="imgs/pie_icoder.png">                   
-</header>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Inicio</div>
-                <div class="panel-body">
+        <img id="logo" src="imgs/pie_icoder.png">          
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default" id="panel_container">
+                <div class="panel-heading" style="border-top: 0px; border-left: 0px; border-right: 0px;">
+                    Sistema de Inscripciones Juegos Nacionales 2017
+                </div>
+                <div class="panel-body" id="panel_body" style="border-style: none">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Correo:</label>
+                            
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                            <div class="col-md-offset-2 col-md-8">
+                                
+                                <input id="email" type="email" name="email" value="{{ old('email') }}" required placeholder="Correo" style="border-top: 0px; border-left: 0px; border-right: 0px; border-bottom-color: blue">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -29,10 +32,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Contraseña:</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                            <div class="col-md-offset-2 col-md-8">
+                                
+                                <input id="password" type="password" name="password" required placeholder="Contraseña" style="border-top: 0px; border-left: 0px; border-right: 0px; border-bottom-color: blue">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -43,17 +46,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recordarme
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
+                            <div class="col-md-4 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Ingresar
                                 </button>
@@ -69,7 +62,4 @@
         </div>
     </div>
 </div>
-<footer>
-    <img src="imgs/bandera.png">                   
-</footer>
 @endsection

@@ -79,10 +79,11 @@
                         <a href="{{ url('/try_outs') }}">Pruebas</a>
                         <a href="{{ url('/user_rols') }}">Roles</a>
                         <a href="{{ url('/users') }}">Usuarios</a>
-                        <a href="{{ url('/registration') }}">Inscripción</a>
+                        <a href="{{ url('/select_sport') }}">Inscripción</a>
+                        <a href="{{ url('/reports') }}">Reportes</a>
                     @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ url('/login') }}">Ingresar</a>
+                        {{-- <a href="{{ url('/register') }}">Register</a> --}}
                     @endif
                 </div>
             @endif

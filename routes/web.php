@@ -71,3 +71,21 @@ Route::post('/editions/update/', 'EditionsController@update');
 
 //Register routes
 Route::get('/registration', 'EnrolleController@show')->name('registration');
+Route::post('/registration/create', 'EnrolleController@create')->name('enrolle_create');
+Route::post('/registration/find/{dni}', 'EnrolleController@find');
+Route::post('/registration/try_outs/{dni}', 'EnrolleController@try_outs');
+
+//Select_Sport routes
+Route::get('/select_sport', 'EnrolleController@choose')->name('select_sport');
+Route::post('/select_sport/multi', 'EnrolleController@import')->name('import');
+
+//PDF
+Route::post('/pdf', 'PDFController@invoice')->name('save_pdf');
+Route::get('/pdf_list', 'PDFController@show');
+
+//Reports routes
+Route::get('/reports', 'ReportController@show');
+Route::post('/reports/findsport/{id}', 'ReportController@find_per_sport');
+Route::post('/reports/findcategory/{id}', 'ReportController@find_per_category');
+
+
