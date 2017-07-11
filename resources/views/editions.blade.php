@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="css/maintenances.css">
 @extends('layouts.app')
 @section('content')
+@if (Auth::check() && Auth::user()->user_type == 1)
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -251,4 +252,7 @@
         </div>
     </div>
 </div>
+@else
+<h3>No posee los permisos suficientes</h3>
+@endif
 @endsection

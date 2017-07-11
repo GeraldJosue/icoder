@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>ICODER</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -68,7 +68,7 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
-                    @if (Auth::check())
+                    @if (Auth::check() && Auth::user()->user_type == 1)
                         <a href="{{ url('/home') }}">Home</a>
                         
                         <a href="{{ url('/provinces') }}">Provincias</a>
@@ -79,6 +79,7 @@
                         <a href="{{ url('/try_outs') }}">Pruebas</a>
                         <a href="{{ url('/user_rols') }}">Roles</a>
                         <a href="{{ url('/users') }}">Usuarios</a>
+                    @elseif(Auth::check() && Auth::user()->user_type == 2)
                         <a href="{{ url('/select_sport') }}">Inscripción</a>
                         <a href="{{ url('/reports') }}">Reportes</a>
                     @else
