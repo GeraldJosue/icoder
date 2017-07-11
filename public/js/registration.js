@@ -46,10 +46,52 @@ $(document).ready(function(){
                   	$('#nationality').val(data.rc_nationality);
                   	$('#birthdate').val(data.rc_birthdate);
                   	$('#gender').val(data.rc_gender);
+                  	$('#person_email').val(data.person_email);
+                  	$('#tel_number').val('');
+                  	$('#weight').val('');
+                  	$('#height').val('');
                }
         });
 
 	});
+
+	$('#edit').on('click', function(){
+		$('#savetemp').attr("disabled", false);
+		$('#st_step').show();
+		var dni = $('input:checked').val();
+		var urlroute = '/registration/find_partial/' + dni;
+		$.ajax({
+               type:'POST',
+               url:urlroute,
+               success:function(data){
+               		$('#finder').val(data.dni);
+                  	$('#dni').val(data.dni);
+                  	$('#name').val(data.name);
+                  	$('#firstname').val(data.firstname);
+                  	$('#lastname').val(data.lastname);
+                  	$('#nationality').val(data.nationality);
+                  	$('#birthdate').val(data.birthdate);
+                  	$('#gender').val(data.gender);
+                  	$('#person_email').val(data.person_email);
+                  	$('#tel_number').val(data.tel_number);
+                  	$('#weight').val(data.weight);
+                  	$('#height').val(data.height);
+                  	configselected('user_rol', data.user_rol_id);
+                  	configselected('blood_type', data.blood_type);
+                  	//configselect('provinces', 2);
+                  	//configselect('cantons', data.canton_id);
+               }
+        });
+
+	});
+
+	function configselected(selectname, text){
+		$("#"+ selectname +" option").filter(function() {
+    	//may want to use $.trim in here
+    		return $(this).val() == text; 
+		}).prop('selected', true);
+	}
+
 
 	$("#next1").on("click", function(){
 		//var email = $('#person_email').val();

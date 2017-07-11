@@ -1,9 +1,40 @@
 <link rel="stylesheet" href="css/maintenances.css">
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container" style="margin: 0">
     <div class="row">
-        <div class="col-md-11">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Inscripciones Parciales</div>
+                <div class="panel-body">
+                    <form>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Dni</th>
+                                    <th>Nombre</th>
+                                    <th>Editar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($enrolles as $enrolle)
+                                            <tr>
+                                                <td>{{$enrolle->dni}}</td>
+                                                <td>{{$enrolle->name}}</td>
+                                                <td>
+                                                    <input type="radio" name="enrolles" value="{{$enrolle->person_id}}"><br>
+                                                </td>
+                                            </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <button class="btn btn-default" id="edit" type="button">Editar</button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-heading">{{$sport->sport_name}}</div>
                 <div class="panel-heading">TIPOS DE DATOS</div>
@@ -218,47 +249,7 @@
                         </div>
                 </div>
 
-                <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Cédula</th>
-                                        <th>Nombre</th>
-                                        <th>Birthdate</th>
-                                        <th>Deporte</th>
-                                        <th>Editar</th>
-                                        <th>Eliminar</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                        @foreach($enrolles as $enrolle)
-                                        <tr>
-                                            <td>{{$enrolle->dni}}</td>
-                                            <td>{{$enrolle->name.' '.$enrolle->firstname}}</td>
-                                            <td>{{substr($enrolle->birthdate, 0, 4)}}</td>
-                                            <td>{{$sport->sport_name}}</td>
-                                            <td>
-                                                <a>
-                                                    
-                                                    <span class="glyphicon glyphicon-cog" style="color:green" aria-hidden="true"></span>
-
-                                                </a>
-                                                </td>
-                                                <td>
-                                                <a
-                                                    onclick="return confirm('¿Eliminar {{$sport->sport_name}} del sistema?');">
-                                                        
-                                                        <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span>
-                                                    
-                                                </a>
-                                            
-                                                
-                                            </td>
-                                            </tr>
-                                        @endforeach
-                                    
-                                </tbody>
-                    </table>
+                
                 </div>
             </div>
         </div>

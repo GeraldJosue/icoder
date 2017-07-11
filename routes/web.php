@@ -73,6 +73,7 @@ Route::post('/editions/update/', 'EditionsController@update');
 Route::get('/registration', 'EnrolleController@show')->name('registration');
 Route::post('/registration/create', 'EnrolleController@create')->name('enrolle_create');
 Route::post('/registration/find/{dni}', 'EnrolleController@find');
+Route::post('/registration/find_partial/{dni}', 'EnrolleController@find_partial');
 Route::post('/registration/try_outs/{dni}', 'EnrolleController@try_outs');
 
 //Select_Sport routes

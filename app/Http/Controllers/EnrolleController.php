@@ -39,8 +39,9 @@ class EnrolleController extends Controller
         if($request->hasFile('excelf')) {
                  $file = $request->file('excelf');
                  $nombre = $file->getClientOriginalName();
-                \Storage::disk('local')->put($nombre,  \File::get($file));
-                 $excel = $nombre;
+                 $new_name = $request->canton_id.'_'.$request->sport_name.'.csv';
+                \Storage::disk('local')->put($new_name, \File::get($file));
+                 $excel = $new_name;
         }
 
         Excel::load('public/imgs/'.$excel, function($reader) {
@@ -68,22 +69,27 @@ class EnrolleController extends Controller
                     'user_rol_id' => $person->rol,
                     'address_id' => $address->address_id,
                     'photo_id' => $photo->photo_id,
-                    'state' => 3
+                    'state' => 3,
+                    'gender' => $person->genero
+
                 ]);
             }
 
         });
 
         $enrolles = Enrolle_People::where('state', 3)->get();
+
         foreach ($enrolles as $enrolle) {
             $enrolle->canton_id = $request->canton_id;
             $enrolle->sport_id = $request->sport_id;
             $enrolle->state = 2;
             $enrolle->save();
         }
-
+        $provinces = Province::all();
+        $cantons = Canton::all();
+        $user_rols = User_Rol::all();
+        $sport = Sport::find($request->sport_id);
         return redirect()->route('select_sport');
-                
 
     }
 
@@ -105,32 +111,37 @@ class EnrolleController extends Controller
             if($request->hasFile('personal')) {
                 $file = $request->file('personal');
                 $nombre = $file->getClientOriginalName();
-                \Storage::disk('local')->put($nombre,  \File::get($file));
-                $personal = 'public/imgs/'.$nombre;
+                $new_name = $request->dni.'_'.$request->name.'_profile.jpg';
+                \Storage::disk('local')->put($new_name,  \File::get($file));
+                $personal = 'public/imgs/'.$new_name;
             }
             if($request->hasFile('front')) {
                 $file = $request->file('front');
                 $nombre = $file->getClientOriginalName();
-                \Storage::disk('local')->put($nombre,  \File::get($file));
-                $front = 'public/imgs/'.$nombre;
+                $new_name = $request->dni.'_'.$request->name.'_front.jpg';
+                \Storage::disk('local')->put($new_name,  \File::get($file));
+                $front = 'public/imgs/'.$new_name;
             }
             if($request->hasFile('back')) {
                 $file = $request->file('back');
                 $nombre = $file->getClientOriginalName();
-                \Storage::disk('local')->put($nombre,  \File::get($file));
-                $back = 'public/imgs/'.$nombre;
+                $new_name = $request->dni.'_'.$request->name.'_back.jpg';
+                \Storage::disk('local')->put($new_name,  \File::get($file));
+                $back = 'public/imgs/'.$new_name;
             }
             if($request->hasFile('enroll')) {
                 $file = $request->file('enroll');
                 $nombre = $file->getClientOriginalName();
-                \Storage::disk('local')->put($nombre,  \File::get($file));
-                $enroll = 'public/imgs/'.$nombre;
+                $new_name = $request->dni.'_'.$request->name.'_enroll.jpg';
+                \Storage::disk('local')->put($new_name,  \File::get($file));
+                $enroll = 'public/imgs/'.$new_name;
             }
             if($request->hasFile('pass')) {
                 $file = $request->file('pass');
                 $nombre = $file->getClientOriginalName();
-                \Storage::disk('local')->put($nombre,  \File::get($file));
-                $pass = 'public/imgs/'.$nombre;
+                $new_name = $request->dni.'_'.$request->name.'_pass.jpg';
+                \Storage::disk('local')->put($new_name,  \File::get($file));
+                $pass = 'public/imgs/'.$new_name;
             }
 
 
@@ -180,6 +191,10 @@ class EnrolleController extends Controller
         return response()->json($rc);
     }
 
+    public function find_partial($dni) {
+        $ep = Enrolle_People::where('person_id', $dni)->first();
+        return response()->json($ep);
+    }
 
     public function try_outs($c_id) {
         $category = Category::where('initial_year', '<', $c_id)->where('sport_id', 8)->first();

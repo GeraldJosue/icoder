@@ -92,7 +92,7 @@
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/configtables.js?1.1.2"></script>
     <script type="text/javascript" src="js/configmodals.js?1.1.4"></script>
-    <script type="text/javascript" src="js/registration.js?1.1.4"></script>
+    <script type="text/javascript" src="js/registration.js?1.1.2"></script>
     <script type="text/javascript" src="js/reports.js?1.1.2"></script>
 
 
